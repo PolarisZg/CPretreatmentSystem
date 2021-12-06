@@ -1,0 +1,14 @@
+#include <stdio.h>
+#define  ADDR_START   0x20480000
+#define  ADDR_A        ADDR_START + 0x04
+#define  ADDR_B        ADDR_START + 15
+#define  BUFFER_SIZE  1024
+#define  BUFFER_END    ADDR_START + BUFFER_SIZE – 1
+#define  PI      3.14
+void main()
+{
+	float r, l;
+	scanf(“%f”, &r);
+	l = 2 * PI *r;
+	memset(ADDR_START, BUFFER_SIZE, 0x00);
+}
