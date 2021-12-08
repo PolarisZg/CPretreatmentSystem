@@ -1,25 +1,25 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
 
 class FileProcessor {
-    Reader reader = null;
-    data_operator dataOperator = null;
-    data_code dataCode = null;
+    Reader reader;
+    data_operator dataOperator;
+    data_code dataCode;
+
     FileProcessor(Reader reader , data_operator dataOperator , data_code dataCode){
         this.reader = reader;
         this.dataOperator = dataOperator;
         this.dataCode = dataCode;
+        startFileProcessor();
     }
-    void first() {
+
+    void startFileProcessor() {
         {
             try {
-                int i = 0;
+                int i;
                 while (true) {
                     i = reader.read();
-                    StringBuffer temp = new StringBuffer();
+                    StringBuilder temp = new StringBuilder();
                     while (dataOperator.dataSearch(String.valueOf((char) i)) == null) {
                         temp.append((char) i);
                         i = reader.read();
@@ -28,13 +28,15 @@ class FileProcessor {
                         }
                     }
                     if (i == -1) break;
+                    if (temp.length() > 0)
+                        dataCode.addWord(temp.toString());
+                    if(i == '\t'){
+                        dataCode.addWord(String.valueOf(' '));
+                        continue;
+                    }
                     if (i == '\r' || i == '\n') {
-                        if (temp.length() > 0)
-                            dataCode.addWord(temp.toString());
                         dataCode.nextLine();
                     } else {
-                        if (temp.length() > 0)
-                            dataCode.addWord(temp.toString());
                         dataCode.addWord(String.valueOf((char) i));
                     }
                 }

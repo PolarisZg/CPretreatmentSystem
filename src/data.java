@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 interface data {
     String dataType();
@@ -85,8 +84,10 @@ class data_operator implements data{
                             "?", ":",
                             ",",
                             "[", "]",
-                            "{", "}", ";", " ", "\n", "\r", "\t"};
-        int length = iniData.length;
+                            "{", "}", ";", " ", "\n", "\r", "\t", String.valueOf((char)9)};
+        /*
+        * 这里添加的各个符号是为了正确分割输入的代码字符串, 最后那个 (char)9 是横向制表符 Tab 键, 谁知道那个傻缺会这么写, 总之前面的那个 '\t' 识别不过去
+        * */
         for (String iniDatum : iniData) {
             dataWrite(iniDatum, iniDatum);
         }
