@@ -1,77 +1,52 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-interface data {
-    String dataType();
-    Object dataSearch(String s);
-    void dataWrite(String s, Object o);
-    void dataDel(String s);
-}
-class data_SaveWord implements data{
+class data_SaveWord {
     HashMap<String, Object> data = new HashMap<>();
-    @Override
-    public String dataType() {
-        return "saveWord";
-    }
 
-    @Override
     public Object dataSearch(String s) {
         return data.get(s);
     }
 
-    @Override
     public void dataWrite(String s, Object o) {
         data.put(s,o);
     }
 
-    @Override
     public void dataDel(String s) {
         data.remove(s);
     }
 }
-class data_defineData implements data{
-    HashMap<String, String> data = new HashMap<>();
-    @Override
-    public String dataType() {
-        return "changeWord";
-    }
 
-    @Override
-    public String dataSearch(String s) {
+class data_defineData {
+    HashMap<String, data_object> data = new HashMap<>();
+
+    public data_object dataSearch(String s) {
         return data.get(s);
     }
 
-    @Override
-    public void dataWrite(String s, Object o) {
-        data.put(s,(String)o);
+    public void dataWrite(String s, data_object o) {
+        data.put(s,o);
     }
 
-    @Override
     public void dataDel(String s) {
         data.remove(s);
     }
 }
-class data_operator implements data{
+
+class data_operator {
     HashMap<String, String>data = new HashMap<>();
     data_operator(){
         ini();
     }
-    @Override
-    public String dataType() {
-        return "operator";
-    }
 
-    @Override
     public String dataSearch(String s) {
         return data.get(s);
     }
 
-    @Override
     public void dataWrite(String s, Object o) {
         data.put(s , (String)o);
     }
 
-    @Override
     public void dataDel(String s) {
         data.remove(s);
     }
@@ -123,5 +98,26 @@ class data_code{
                 }
             }
         }
+    }
+}
+class data_object{
+    String object_type;
+    int object_valueInt;
+    double object_valueDou;
+    String object_valueStr;
+    data_object(String name, int value){
+        object_type = name;
+        object_valueInt = value;
+    }
+    data_object(String name, double value){
+        object_type = name;
+        object_valueDou = value;
+    }
+    data_object(String name, String value){
+        object_type = name;
+        object_valueStr = value;
+    }
+    String get_data_object(){
+        return object_type;
     }
 }
