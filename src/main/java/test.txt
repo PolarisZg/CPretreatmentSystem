@@ -5,9 +5,12 @@
 #define  BUFFER_SIZE  1024
 #define  BUFFER_END    ADDR_START + BUFFER_SIZE – 1
 #define  PI      3.14
+#define  ARRAY {1,2,3,4,5}
+#define  LOG 1&&2
 void main()
 {
 	float r, l;
+	r++;
 	scanf(“%f”, &r);
 	l = 2 * PI *r;
 	memset(ADDR_START, BUFFER_SIZE, 0x00);

@@ -1,3 +1,5 @@
+package main.java;
+
 import java.io.IOException;
 import java.io.Reader;
 
@@ -37,7 +39,10 @@ class FileProcessor {
                     if (i == '\r' || i == '\n') {
                         dataCode.nextLine();
                     } else {
-                        dataCode.addWord(String.valueOf((char) i));
+                        if(dataOperator.dataSearch((dataCode.getBottomWord() + String.valueOf((char) i))) == null)
+                            dataCode.addWord(String.valueOf((char) i));
+                        else
+                            dataCode.replaceBottomWord(String.valueOf((char) i));
                     }
                 }
             } catch (IOException e) {

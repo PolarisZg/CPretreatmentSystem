@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 
 class code_processor {
@@ -22,7 +24,10 @@ class code_processor {
                     }
                     String value = stringBuffer.toString();
                     data_object dataObject;
-                    if(etc.typeString(value).equals("int")){
+                    if(etc.typeString(value).equals("intHex")){
+                        dataObject = new data_object("int", Integer.parseInt(value.substring(2) , 16));
+                    }
+                    else if(etc.typeString(value).equals("int")){
                         dataObject = new data_object("int", Integer.parseInt(value));
                     }
                     else if(etc.typeString(value).equals("double")){

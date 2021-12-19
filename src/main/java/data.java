@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -53,15 +55,15 @@ class data_operator {
 
     private void ini(){
         String[] iniData = {"+", "-" , "*" , "/", "%", "(", ")",
-                            "<", "<=", "==", ">=", ">",
+                            "<", "<=", "==", ">=", ">", "&&", "||", "!",
                             "<<", ">>", "~", "|", "^", "&",
-                            "=", "+=", "=+", "-=", "=-",
+                            "=", "+=", "=+", "-=", "=-", "++", "--",
                             "?", ":",
                             ",",
-                            "[", "]",
+                            "[", "]", "[]",
                             "{", "}", ";", " ", "\n", "\r", "\t", String.valueOf((char)9)};
         /*
-        * 这里添加的各个符号是为了正确分割输入的代码字符串, 最后那个 (char)9 是横向制表符 Tab 键, 谁知道那个傻缺会这么写, 总之前面的那个 '\t' 识别不过去
+        * 这里添加的各个符号是为了正确分割输入的代码字符串, 最后那个 (char)9 是横向制表符 Tab 键
         * */
         for (String iniDatum : iniData) {
             dataWrite(iniDatum, iniDatum);
@@ -70,7 +72,7 @@ class data_operator {
 }
 class data_code{
     ArrayList<ArrayList> allCode = new ArrayList<>();
-    ArrayList<String> thisLine = null;
+    private ArrayList<String> thisLine = null;
     data_code(){
         nextLine();
     }
@@ -81,6 +83,16 @@ class data_code{
 
     void addWord(String s){
         thisLine.add(s);
+    }
+
+    String getBottomWord(){
+        if(thisLine.size() == 0)
+            return "@";                         // 在这里返回 @ 是因为如果此行还没代码的话size == 0 后面get会报错，所以添加了一个肯定不会出现在Operate里面的字符'@'
+        return thisLine.get(thisLine.size() - 1);
+    }
+
+    void replaceBottomWord(String s){
+        thisLine.set(thisLine.size() - 1, getBottomWord() + s);
     }
 
     void batterCode(){
@@ -105,6 +117,7 @@ class data_object{
     int object_valueInt;
     double object_valueDou;
     String object_valueStr;
+    boolean object_valueBool;
     data_object(String name, int value){
         object_type = name;
         object_valueInt = value;
@@ -116,6 +129,10 @@ class data_object{
     data_object(String name, String value){
         object_type = name;
         object_valueStr = value;
+    }
+    data_object(String name, boolean value){
+        object_type = name;
+        object_valueBool = value;
     }
     String get_data_object(){
         return object_type;
