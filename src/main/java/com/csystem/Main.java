@@ -1,4 +1,6 @@
-package main.java;
+package com.csystem;
+
+import com.googlecode.aviator.AviatorEvaluator;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,8 +26,9 @@ public class Main {
 //        }
 
         code_processor codeProcessor = new code_processor(dataCode, dataDefineData);
+        Long result = (Long) AviatorEvaluator.execute("1+2*(2+6>>1)+3");
 
-        System.out.println("HelloWorld");
+        System.out.println(result);
 
     }
 }
