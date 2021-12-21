@@ -14,12 +14,12 @@ class code_processor {
     private void startCodeProcessor() {
         for (int i = 0; i < dataCode.allCode.size(); i++) {
             ArrayList arrayList = dataCode.allCode.get(i);
-            for (int j = 0; j < arrayList.size(); j++) {
-                if(arrayList.get(j).equals("#define")){
-                    String key = (String) arrayList.get(j + 2);
-                    j = j + 4;
+            //for (int j = 0; j < arrayList.size(); j++) {
+                if(arrayList.get(0).equals("#define")){
+                    String key = (String) arrayList.get(1);
+                    //j = j + 4;
                     StringBuffer stringBuffer = new StringBuffer();
-                    for(;j < arrayList.size(); j++){
+                    for(int j = 2; j < arrayList.size(); j++){
                         stringBuffer.append(arrayList.get(j));
                     }
                     String value = stringBuffer.toString();
@@ -37,7 +37,7 @@ class code_processor {
                         dataObject = new data_object("String", value);
                     dataDefineData.dataWrite(key, dataObject);
                 }
-            }
+            //}
         }
     }
 }

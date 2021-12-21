@@ -32,8 +32,8 @@ class FileProcessor {
                     if (i == -1) break;
                     if (temp.length() > 0)
                         dataCode.addWord(temp.toString());
-                    if(i == '\t'){
-                        dataCode.addWord(String.valueOf(' '));
+                    if(i == '\t' || i == ' '){
+                        //dataCode.addWord(String.valueOf(' '));
                         continue;
                     }
                     if (i == '\r' || i == '\n') {

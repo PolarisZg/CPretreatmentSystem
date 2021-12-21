@@ -1,12 +1,6 @@
 #include <stdio.h>
-#define  ADDR_START   0x20480000
-#define  ADDR_A        ADDR_START + 0x04
-#define  ADDR_B        ADDR_START + 15
-#define  BUFFER_SIZE  1024
-#define  BUFFER_END    ADDR_START + BUFFER_SIZE – 1
-#define  PI      3.14
-#define  ARRAY {1,2,3,4,5}
-#define  LOG 1&&2
+#define a 2+3
+#define b 2+
 void main()
 {
 	float r, l;

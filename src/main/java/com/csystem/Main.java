@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String [] args) throws FileNotFoundException {
 
+        dataDictionary.ini();
         Reader reader = new FileReader("src/main/java/test.txt");
         data_operator dataOperator = new data_operator();
         data_code dataCode = new data_code();
@@ -26,9 +27,11 @@ public class Main {
 //        }
 
         code_processor codeProcessor = new code_processor(dataCode, dataDefineData);
-        Long result = (Long) AviatorEvaluator.execute("1+2*(2+6>>1)+3");
 
-        System.out.println(result);
-
+        LangIsOperate.defineIsOperate(dataCode,dataDefineData);
+//        Long result = (Long) AviatorEvaluator.execute("1+2*(2+6>>1)+3");
+//
+//        System.out.println(result);
+        System.out.println("Happy");
     }
 }

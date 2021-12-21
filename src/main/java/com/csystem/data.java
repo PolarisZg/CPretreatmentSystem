@@ -112,27 +112,26 @@ class data_code{
         }
     }
 }
+
 class data_object{
     String object_type;
     int object_valueInt;
     double object_valueDou;
     String object_valueStr;
-    boolean object_valueBool;
+    boolean object_isOperate;
     data_object(String name, int value){
         object_type = name;
         object_valueInt = value;
+        object_isOperate = true;
     }
     data_object(String name, double value){
         object_type = name;
         object_valueDou = value;
+        object_isOperate = true;
     }
     data_object(String name, String value){
         object_type = name;
         object_valueStr = value;
-    }
-    data_object(String name, boolean value){
-        object_type = name;
-        object_valueBool = value;
     }
     String get_data_object(){
         return object_type;
