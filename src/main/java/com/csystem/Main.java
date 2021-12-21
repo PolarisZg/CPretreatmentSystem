@@ -27,8 +27,12 @@ public class Main {
 //        }
 
         code_processor codeProcessor = new code_processor(dataCode, dataDefineData);
+        codeOpen.CodeOpen(dataCode,dataDefineData);
 
         LangIsOperate.defineIsOperate(dataCode,dataDefineData);
+        OperateAnswer.getCodeOperate(dataCode,dataDefineData);
+        OperateAnswer.defineEndAnswer(dataDefineData);
+        theEndStep.end(dataCode,dataDefineData);
 //        Long result = (Long) AviatorEvaluator.execute("1+2*(2+6>>1)+3");
 //
 //        System.out.println(result);

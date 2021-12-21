@@ -26,6 +26,7 @@ class code_processor {
                     data_object dataObject;
                     if(etc.typeString(value).equals("intHex")){
                         dataObject = new data_object("int", Integer.parseInt(value.substring(2) , 16));
+                        arrayList.set(2,String.valueOf(Integer.parseInt(value.substring(2) , 16)));
                     }
                     else if(etc.typeString(value).equals("int")){
                         dataObject = new data_object("int", Integer.parseInt(value));
@@ -34,7 +35,8 @@ class code_processor {
                         dataObject = new data_object("double", Double.parseDouble(value));
                     }
                     else
-                        dataObject = new data_object("String", value);
+                        dataObject = new data_object("String");
+                    dataObject.mustDo(arrayList);
                     dataDefineData.dataWrite(key, dataObject);
                 }
             //}

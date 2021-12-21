@@ -117,8 +117,9 @@ class data_object{
     String object_type;
     int object_valueInt;
     double object_valueDou;
-    String object_valueStr;
+    ArrayList<String> object_valueStr;
     boolean object_isOperate;
+    ArrayList<String> operate;
     data_object(String name, int value){
         object_type = name;
         object_valueInt = value;
@@ -129,9 +130,14 @@ class data_object{
         object_valueDou = value;
         object_isOperate = true;
     }
-    data_object(String name, String value){
+    data_object(String name){
         object_type = name;
-        object_valueStr = value;
+    }
+    void mustDo(ArrayList<String> value){
+        object_valueStr = new ArrayList<>();
+        for(int j = 2 ; j < value.size() ; j++){
+            object_valueStr.add(value.get(j));
+        }
     }
     String get_data_object(){
         return object_type;

@@ -1,11 +1,14 @@
 #include <stdio.h>
-#define a 2+3
-#define b 2+
+#define a 0xff
+#define b 2
+#define c a&&b
+#define d c+b
+#define e 3+(8-6>>1)*2+3
+#define g 3.14*2
 void main()
 {
 	float r, l;
-	r++;
 	scanf(“%f”, &r);
-	l = 2 * PI *r;
-	memset(ADDR_START, BUFFER_SIZE, 0x00);
+	l = 2 * g *r;
+	memset(a, e, 0x00);
 }

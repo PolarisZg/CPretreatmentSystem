@@ -2,6 +2,7 @@ package com.csystem;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 
 class FileProcessor {
     Reader reader;
@@ -15,7 +16,7 @@ class FileProcessor {
         startFileProcessor();
     }
 
-    void startFileProcessor() {
+    private void startFileProcessor() {
         {
             try {
                 int i;
@@ -54,6 +55,18 @@ class FileProcessor {
                 e.printStackTrace();
             }
             dataCode.batterCode();
+        }
+    }
+
+    static void Hex2Dec(data_code dataCode){
+        for(int i = 0 ; i < dataCode.allCode.size() ; i++){
+            ArrayList arrayList = dataCode.allCode.get(i);
+            for(int j = 0 ; j < arrayList.size() ; j++){
+                String string = (String) arrayList.get(j);
+                if(etc.typeString(string).equals("intHex")){
+                    arrayList.set(j,String.valueOf(Integer.parseInt(string.substring(2), 16)));
+                }
+            }
         }
     }
 }
