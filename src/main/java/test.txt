@@ -5,9 +5,11 @@
 #define d c+b
 #define e 3+(8-6>>1)*2+3
 #define g 3.14*2
+#define z printf("%d",a);
 void main()
 {
-	float r, l;
+	float l,r
+	z
 	scanf(“%f”, &r);
 	l = 2 * g *r;
 	memset(a, e, 0x00);

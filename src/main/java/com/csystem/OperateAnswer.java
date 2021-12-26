@@ -84,7 +84,8 @@ public class OperateAnswer {
             Map.Entry entry = (Map.Entry) iterator.next();
             String key = (String) entry.getKey();
             data_object value = (data_object) entry.getValue();
-            getTheEndAnswer(key, value.operate, dataDefineData);
+            if(value.object_isOperate)
+                getTheEndAnswer(key, value.operate, dataDefineData);
         }
     }
 

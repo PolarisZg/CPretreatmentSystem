@@ -12,6 +12,7 @@ public class Main {
     public static void main(String [] args) throws FileNotFoundException {
 
         dataDictionary.ini();
+//        new NoteBookMachine();
         Reader reader = new FileReader("src/main/java/test.txt");
         data_operator dataOperator = new data_operator();
         data_code dataCode = new data_code();
@@ -34,7 +35,7 @@ public class Main {
         OperateAnswer.defineEndAnswer(dataDefineData);
         theEndStep.end(dataCode,dataDefineData);
 //        Long result = (Long) AviatorEvaluator.execute("1+2*(2+6>>1)+3");
-//
+
 //        System.out.println(result);
         System.out.println("Happy");
     }
