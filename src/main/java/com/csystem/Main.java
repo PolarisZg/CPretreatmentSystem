@@ -12,20 +12,15 @@ public class Main {
     public static void main(String [] args) throws FileNotFoundException {
 
         dataDictionary.ini();
-//        new NoteBookMachine();
+
+        //new NoteBookMachine();
+        // 上一行注释掉的代码代表图形界面，取消上一行的注释并注释掉下方所有代码即可运行图形界面
+
         Reader reader = new FileReader("src/main/java/test.txt");
         data_operator dataOperator = new data_operator();
         data_code dataCode = new data_code();
         FileProcessor fileProcessor = new FileProcessor(reader , dataOperator , dataCode);
         data_defineData dataDefineData = new data_defineData();
-
-//        for(int i = 0 ; i < dataCode.allCode.size() ; i++){
-//            ArrayList arrayList = dataCode.allCode.get(i);
-//            for (Object o : arrayList) {
-//                System.out.print(o);
-//            }
-//            System.out.println();
-//        }
 
         code_processor codeProcessor = new code_processor(dataCode, dataDefineData);
         codeOpen.CodeOpen(dataCode,dataDefineData);
@@ -34,9 +29,6 @@ public class Main {
         OperateAnswer.getCodeOperate(dataCode,dataDefineData);
         OperateAnswer.defineEndAnswer(dataDefineData);
         theEndStep.end(dataCode,dataDefineData);
-//        Long result = (Long) AviatorEvaluator.execute("1+2*(2+6>>1)+3");
-
-//        System.out.println(result);
         System.out.println("Happy");
     }
 }
